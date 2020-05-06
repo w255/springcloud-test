@@ -1,0 +1,18 @@
+server:
+  port: ${port:10086}
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      # eureka 服务地址，如果是集群的话；需要指定其它集群eureka地址
+      defaultZone: http://127.0.0.1:10086/eureka
+    # 不注册自己
+    register-with-eureka: false
+    # 不拉取服务
+    fetch-registry: false
+  instance:
+    # 修改后在调用服务的时候,已经改成了IP地址;但需要注意,不是在Eureka中的控制台服务实例状态显示;可通过Debug查看
+    ip-address: 127.0.0.1 #ip地址
+    prefer-ip-address: true #更倾向于使用ip,而不是host名
